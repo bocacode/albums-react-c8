@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import AlbumCard from './AlbumCard'
 
 export default function AlbumList() {
   const [albums, setAlbums] = useState()
@@ -12,12 +13,7 @@ export default function AlbumList() {
     <main className='album-list'>
       {!albums
         ? <p>Loading...</p>
-        : albums.map(thisAlbum => (
-          <div className='album' key={thisAlbum.albumId}>
-            <h3>{thisAlbum.album}</h3>
-            <p>{thisAlbum.year}, {thisAlbum.artist}</p>
-          </div>
-        ))
+        : albums.map(thisAlbum => <AlbumCard key={thisAlbum.albumId} thisAlbum={thisAlbum} />)
       }
     </main>
   )
